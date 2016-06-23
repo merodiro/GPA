@@ -14,14 +14,14 @@ function displayCourses() {
          }*/
         for (i = 1; i <= coursesNo; i++) {
             var course = document.createElement("label");
-            var text = document.createTextNode("course" + i);
+            var text = document.createTextNode("course " + i);
             course.appendChild(text);
             container.appendChild(course);
             var grades = document.createElement("span");
-            grades.innerHTML = " <select id=\"course" + i + "\"><option disabled selected value=\"0\">-- Choose a grade --</option><option value=\"4>\">A+</option><option value=\"3.75>\">A</option><option value=\"3.4>\">B+</option><option value=\"3.1>\">B</option><option value=\"2.8>\">C+</option><option value=\"2.5>\">C</option><option value=\"2.25>\">D+</option><option value=\"2>\">D</option></select>";
+            grades.innerHTML = " <div class=\"medium-6 columns\"><select id=\"course" + i + "\"><option disabled selected value=\"0\">-- Choose a grade --</option><option value=\"4>\">A+</option><option value=\"3.75>\">A</option><option value=\"3.4>\">B+</option><option value=\"3.1>\">B</option><option value=\"2.8>\">C+</option><option value=\"2.5>\">C</option><option value=\"2.25>\">D+</option><option value=\"2>\">D</option></select></div>";
             container.appendChild(grades);
             var hours = document.createElement("span");
-            hours.innerHTML = " <select id=\"hour" + i + "\"><option disabled selected value=\"0\">-- Choose hours --</option><option value=\"3>\">3</option><option value=\"2>\">2</option></select>";
+            hours.innerHTML = " <div class=\"medium-6 columns\"><select id=\"hour" + i + "\"><option disabled selected value=\"0\">-- Choose hours --</option><option value=\"3>\">3</option><option value=\"2>\">2</option></select></div>";
             container.appendChild(hours);
             container.appendChild(document.createElement("br"));
 
@@ -30,6 +30,7 @@ function displayCourses() {
         var text2 = document.createTextNode("calculate");
         btn.appendChild(text2);
         btn.id = "calc";
+        btn.className="success large button";
         btn.type = "button";
         btn.onclick = function () {
             displayResults();
@@ -74,6 +75,7 @@ document.getElementById("courses").style.display = "none";
 //document.getElementById("calc").style.display = "none";
 document.getElementById("calculate").onclick = function () {
     displayCourses();
+    return false;
 };
 //document.getElementById("calc").onclick = function () {
 //    displayResults();
